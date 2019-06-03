@@ -2,6 +2,8 @@ package com.botscrew.university.services;
 
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+
 @Service
 public interface DepartmentService {
 
@@ -9,9 +11,7 @@ public interface DepartmentService {
 
     String getStatistic(String departmentName);
 
-    String getAverageSalary(String departmentName);
+    BigDecimal getAverageSalary(String departmentName);
 
-    String getCountOfEmloyee(String department);
-
-    String globalSearchBy(String template);
+    int getCountOfEmloyee(String department);
 }

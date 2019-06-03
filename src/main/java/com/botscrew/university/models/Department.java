@@ -9,6 +9,7 @@ public class Department {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    private String headOfDepartment;
 
     @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinTable(
@@ -43,6 +44,14 @@ public class Department {
 
     public void setLectors(List<Lector> lectors) {
         this.lectors = lectors;
+    }
+
+    public String getHeadOfDepartment() {
+        return headOfDepartment;
+    }
+
+    public void setHeadOfDepartment(String headOfDepartment) {
+        this.headOfDepartment = headOfDepartment;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.botscrew.university.models;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.Set;
 
 @Entity
@@ -10,10 +11,10 @@ public class Lector {
     private Long id;
     private String name;
     private Degree degree;
+    private BigDecimal salary;
 
     @ManyToMany(mappedBy = "lectors")
     private Set<Department> departments;
-
     public Lector() {
     }
 
@@ -47,6 +48,14 @@ public class Lector {
 
     public void setDepartments(Set<Department> departments) {
         this.departments = departments;
+    }
+
+    public BigDecimal getSalary() {
+        return salary;
+    }
+
+    public void setSalary(BigDecimal salary) {
+        this.salary = salary;
     }
 
     @Override

@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface LectorRepository extends CrudRepository<Lector, Long> {
+    Iterable<Lector> findByNameContainingIgnoreCase(String template);
 }
