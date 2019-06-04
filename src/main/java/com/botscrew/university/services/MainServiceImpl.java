@@ -30,7 +30,7 @@ public class MainServiceImpl implements MainService {
         } else if (requestString.contains("Show statistic.")) {
             System.out.println(
                     departmentService.getStatistic(
-                            requestString.replaceAll("Show statistic", "").trim())
+                            requestString.split(" ")[1])
             );
         } else if (requestString.contains("Show the average salary for department")) {
             System.out.println(departmentService.getAverageSalary(
@@ -45,7 +45,7 @@ public class MainServiceImpl implements MainService {
                     requestString.replaceAll("Global search by", "").trim())
             );
         } else {
-            System.out.println(String.format("%s is no valid command found", requestString));
+            System.out.println(String.format("'%s' : no valid command found", requestString));
         }
     }
 }
