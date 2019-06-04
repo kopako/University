@@ -63,7 +63,7 @@ public class Lector {
         return "Lector{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", degree=" + degree +
+                ", degree=" + degree.name() +
                 '}';
     }
 }
