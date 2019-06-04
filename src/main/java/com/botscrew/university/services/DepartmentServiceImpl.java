@@ -21,7 +21,8 @@ public class DepartmentServiceImpl implements DepartmentService {
 
     @Override
     public String getHead(String departmentName) {
-        return departmentRepository.findByNameIgnoreCase(departmentName).getHeadOfDepartment();
+        String head = departmentRepository.findByNameIgnoreCase(departmentName).getHeadOfDepartment();
+        return String.format("Head of %s department is %s", departmentName, head);
     }
 
     @Override
@@ -44,13 +45,13 @@ public class DepartmentServiceImpl implements DepartmentService {
     }
 
     @Override
-    public BigDecimal getAverageSalary(String departmentName) {
+    public String getAverageSalary(String departmentName) {
                 BigDecimal summOfSalaries = departmentRepository.findByNameIgnoreCase(departmentName)
                         .getLectors().stream()
                 .map(Lector::getSalary)
                 .reduce(BigDecimal.valueOf(0), BigDecimal::add);
         BigDecimal quantity = BigDecimal.valueOf(departmentRepository.findByNameIgnoreCase(departmentName).getLectors().size());
-        return (summOfSalaries.divide(quantity, RoundingMode.HALF_UP));
+        return String.format("The average salary of {department_name} is %d", (summOfSalaries.divide(quantity, RoundingMode.HALF_UP)).longValue());
     }
 
     @Override
