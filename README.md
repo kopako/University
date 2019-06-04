@@ -24,3 +24,22 @@ Answer:
 Example: ```Global search by ​van```  
 Answer:  
 ```I​van​ Petrenko, Petro Iv​anov```
+
+## Usage
+
+### Set your configurations in _application.properties_
+
+- DataBase user
+- DataBase password
+
+### Build application
+
+```zsh
+$ ./gradlew bootJar
+```
+
+### Run app 
+```
+$ java -jar ./build/libs/university-0.0.1-SNAPSHOT.jar 
+```
+
