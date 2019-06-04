@@ -18,8 +18,10 @@ public class LectorServiceImpl implements LectorService {
     @Override
     public String globalSearchBy(String template) {
         StringBuilder stringBuilder = new StringBuilder();
-        findByNameContainingIgnoreCase(template).forEach(a -> stringBuilder.append(a.getName()).append(", "));
-        return stringBuilder.substring(stringBuilder.lastIndexOf(", "));
+        Iterable<Lector> result = findByNameContainingIgnoreCase(template);
+        if (result == null) return "Found nothing";
+        result.forEach(a -> stringBuilder.append(a.getName()).append(", "));
+        return stringBuilder.substring(0, stringBuilder.lastIndexOf(", "));
     }
 
     private Iterable<Lector> findByNameContainingIgnoreCase(String template) {
